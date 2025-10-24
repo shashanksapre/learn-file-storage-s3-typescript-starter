@@ -1,5 +1,7 @@
-import { newDatabase } from "./db/db";
+import { s3, S3Client } from "bun";
 import type { Database } from "bun:sqlite";
+
+import { newDatabase } from "./db/db";
 
 export type ApiConfig = {
   db: Database;
@@ -10,6 +12,7 @@ export type ApiConfig = {
   s3Bucket: string;
   s3Region: string;
   s3CfDistribution: string;
+  s3Client: S3Client;
   port: string;
 };
 
@@ -34,6 +37,7 @@ export const cfg: ApiConfig = {
   s3Bucket: s3Bucket,
   s3Region: s3Region,
   s3CfDistribution: s3CfDistribution,
+  s3Client: s3,
   port: port,
 };
 
